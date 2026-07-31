@@ -8,6 +8,6 @@
         <intent
             android:action="android.intent.action.VIEW"
             android:targetClass="org.microg.gms.auth.login.LoginActivity"
-            android:targetPackage="app.revanced.android.gms" />
+            android:targetPackage="org.microg2.android.gms" />
     </shortcut>
 </shortcuts>

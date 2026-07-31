@@ -121,7 +121,7 @@ public class ForegroundServiceContext extends ContextWrapper {
 
         // Open settings activity when notification is tapped
         Intent mainSettingsIntent = new Intent();
-        mainSettingsIntent.setClassName("app.revanced.android.gms", "org.microg.gms.ui.SettingsActivity");
+        mainSettingsIntent.setClassName(context.getPackageName(), "org.microg.gms.ui.SettingsActivity");
         mainSettingsIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
         PendingIntent mainSettingsPendingIntent = PendingIntent.getActivity(

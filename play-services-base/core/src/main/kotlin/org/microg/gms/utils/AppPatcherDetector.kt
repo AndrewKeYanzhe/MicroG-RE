@@ -19,6 +19,8 @@ object AppPatcherDetector {
     )
 
     private val BLACKLIST_PACKAGES = listOf(
+        "org.microg2.android.gms",
+        "org.microg.android.gms",
         "app.revanced.android.gms",
         "app.morphe.android.gms", // If it's happening in future
         "app.morphe.manager",
