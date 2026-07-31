@@ -1,3 +1,41 @@
+# Changes and Instructions
+
+## 🛠️ Changes Made to MicroG-RE
+
+- **Custom Base Package Name**: Updated `basePackageName` to `"org.microg2"` in [build.gradle](build.gradle) (Application ID: `org.microg2.android.gms`) to bypass Huawei HarmonyOS 6 package blacklists (such as `app.revanced.*`) and avoid conflicts with standard microG installations.
+- **Dynamic Package Resolution**: Updated [ForegroundServiceContext.java](play-services-base/core/src/main/java/org/microg/gms/common/ForegroundServiceContext.java) to use `context.getPackageName()` dynamically.
+- **App Shortcuts**: Updated target package in [shortcuts.xml](play-services-core/src/main/res/xml-v26/shortcuts.xml) to `org.microg2.android.gms`.
+- **Automatic Release Signing**: Configured `signingConfig signingConfigs.debug` for the `release` build type in [play-services-core/build.gradle](play-services-core/build.gradle) so release APKs are automatically signed with certificates.
+
+---
+
+## 🚀 Building & Installation Instructions
+
+### 1. Build the Release APK
+From the repository root folder, run:
+```powershell
+.\gradlew.bat :play-services-core:assembleRelease
+```
+
+- **Output File**: `play-services-core\build\outputs\apk\huawei\release\microg-release-6.1.4.apk`
+
+
+
+---
+
+## 🧩 Morphe Patching Instructions (HarmonyOS 6 / Custom Package)
+
+When patching YouTube / target app to work with `org.microg2.android.gms`:
+
+1. **Custom Patches Repository**: Use the custom [https://github.com/AndrewKeYanzhe/morphe-patches](https://github.com/AndrewKeYanzhe/morphe-patches) repo configured with `GMS_CORE_VENDOR_GROUP_ID = "org.microg2"`.
+2. **Package Visibility & Popups**: Adds `QUERY_ALL_PACKAGES` permission in `AndroidManifest.xml` and neutralizes `checkGmsCore` popups to prevent browser redirect loops.
+3. **Fast Patching on PC**: Use the GUI **Morphe Desktop** app (`morphe-desktop.jar`) to patch your target APK. Load both **`patches-1.37.0.mpp`** and its matching **`patches-1.37.0.json`** metadata file into Morphe Desktop along with your target APK to patch.
+4. **HarmonyOS 6 MicroG Settings Access**:
+   - On the phone, navigate to: `卓易通` ➔ `我的` ➔ `应用管理` ➔ `MicroG RE` ➔ `⚙️ Settings / Gear icon`.
+   - Access MicroG RE settings to manage permissions and disable battery optimizations.
+
+---
+
 <div align="center"> 
 <picture>
     <source
