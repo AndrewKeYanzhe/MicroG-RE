@@ -33,6 +33,7 @@ When patching YouTube / target app to work with `org.microg2.android.gms`:
 4. **HarmonyOS 6 MicroG Settings Access**:
    - On the phone, navigate to: `卓易通` ➔ `我的` ➔ `应用管理` ➔ `MicroG RE` ➔ `⚙️ Settings / Gear icon`.
    - Access MicroG RE settings to manage permissions and disable battery optimizations.
+   - Turn off '隐藏启动器图标' in MicroG RE settings, so that the MicroG RE app icon appears in the launcher. Sometimes you might need to launch MicroG RE first, then launch YouTube Morphe 
 
 ---
 
